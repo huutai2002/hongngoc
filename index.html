@@ -75,7 +75,15 @@
 </head>
 <body>
     <h1>Mảnh ghép kí ức</h1>
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="image">
+		<input type="submit" value="Upload Image" name="submit">
+	</form>	
 	<div class="container">
+		<div class="photo">
+			<img src="./img/27_8_2023.jpg" alt="Ảnh 13">
+			<div class="caption">Thời gian: 27_8_2023</div>
+		</div>
 		<div class="photo">
 			<img src="./img/18_06_2023.png" alt="Ảnh 12">
 			<div class="caption">Thời gian: 2_6_2023</div>
