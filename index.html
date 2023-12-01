@@ -80,6 +80,10 @@
 	<div id="result"></div>
 	<div class="container">
 		<div class="photo">
+			<img src="./img/1_12_2023.jpg" alt="Ảnh 15">
+			<div class="caption">Thời gian: 1_12_2023</div>
+		</div>
+		<div class="photo">
 			<img src="./img/17_9_2023.jpg" alt="Ảnh 14">
 			<div class="caption">Thời gian: 17_9_2023</div>
 		</div>
@@ -149,7 +153,7 @@
 			}
 		
 			var clientId = 'nhtai0560';  // Thay thế bằng client ID của bạn
-			var uploadUrl = 'https://api.imgur.com/3/image';
+			var uploadUrl = 'https://api.imgur.com/oauth2/authorize';
 		
 			var formData = new FormData();
 			formData.append('image', file);
