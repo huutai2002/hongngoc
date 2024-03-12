@@ -1,188 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luong Hong Ngoc</title>
     <style>
-		body, footer {
-			background-color: #f2e6d3;
-			font-family: Arial, sans-serif;
-			text-align: center;
-		}
-		
-		h1 {
-			font-size: 36px;
-			color: #8c4a39;
-			margin-top: 50px;
-		}
+      body,
+      footer {
+        background-color: #f2e6d3;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
 
-		.container {
-			max-width: 1000px;
-			margin: auto;
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			grid-gap: 20px;
-			padding: 20px;
-		}
+      h1 {
+        font-size: 36px;
+        color: #8c4a39;
+        margin-top: 50px;
+      }
 
-		.photo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-			position: relative;
-			overflow: hidden;
-			border: 5px solid #8c4a39;
-			box-shadow: 0 0 10px #8c4a39;
-			border-radius: 5px;
-			cursor: pointer;
-			transition: all 0.3s ease-in-out;
-		}
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+      }
 
-		.photo:hover {
-			transform: scale(1.1);
-			box-shadow: 0 0 20px #8c4a39;
-		}
+      .photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border: 5px solid #8c4a39;
+        box-shadow: 0 0 10px #8c4a39;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
 
-		.photo img {
-			width: 100%;
-			height: auto;
-		}
+      .photo:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px #8c4a39;
+      }
 
-		.photo .caption {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			padding: 5px;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: #fff;
-			font-size: 14px;
-			text-align: left;
-		}
-        @media screen and (max-width: 767px) {
-            .container {
-                grid-template-columns: repeat(3, 1fr);
-            }
+      .photo img {
+        width: 100%;
+        height: auto;
+      }
+
+      .photo .caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 14px;
+        text-align: left;
+      }
+      @media screen and (max-width: 767px) {
+        .container {
+          grid-template-columns: repeat(3, 1fr);
         }
-        @media screen and (max-width: 479px) {
-            .container {
-                grid-template-columns: repeat(1, 1fr);
-            }
+      }
+      @media screen and (max-width: 479px) {
+        .container {
+          grid-template-columns: repeat(1, 1fr);
         }
-	</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <h1>Mảnh ghép kí ức</h1>
-	<input type="file" id="fileInput" />
-	<button onclick="uploadImage()">Upload Image</button>
-	<div id="result"></div>
-	<div class="container">
-		<div class="photo">
-			<img src="./img/1_12_2023.jpg" alt="Ảnh 15">
-			<div class="caption">Thời gian: 1_12_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/17_9_2023.jpg" alt="Ảnh 14">
-			<div class="caption">Thời gian: 17_9_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/27_8_2023.jpg" alt="Ảnh 13">
-			<div class="caption">Thời gian: 27_8_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/18_06_2023.png" alt="Ảnh 12">
-			<div class="caption">Thời gian: 2_6_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/2_6_2023.jpg" alt="Ảnh 11">
-			<div class="caption">Thời gian: 2_6_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/5_7_2023.jpg" alt="Ảnh 10">
-			<div class="caption">Thời gian: 5_7_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/30_4_2023.jpg" alt="Ảnh 1">
-			<div class="caption">Thời gian: 30_4_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/29_4_2023.jpg" alt="Ảnh 2">
-			<div class="caption">Thời gian: 29_4_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/29_1_2023.jpg" alt="Ảnh 3">
-			<div class="caption">Thời gian: 29_1_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/26_1_2023.jpg" alt="Ảnh 4">
-			<div class="caption">Thời gian: 26_1_2023</div>
-		</div>
-		<div class="photo">
-			<img src="./img/6_2_2022.jpg" alt="Ảnh 5">
-			<div class="caption">Thời gian: 6_2_2022</div>
-		</div>
-		<div class="photo">
-			<img src="./img/31_7_2021.jpg" alt="Ảnh 6">
-			<div class="caption">Thời gian:31_7_2021</div>
-		</div>
-        <div class="photo">
-			<img src="./img/12_6_2021.jpg" alt="Ảnh 7">
-			<div class="caption">Thời gian: 12_6_2021</div>
-		</div>
-        <div class="photo">
-			<img src="./img/4_7_2021.jpg" alt="Ảnh 8">
-			<div class="caption">Thời gian: 4_7_2021</div>
-		</div>
-        <div class="photo">
-			<img src="./img/quen_ngay.jpg" alt="Ảnh 9">
-			<div class="caption">Thời gian: quen_ngay</div>
-		</div>
-	</div>
-		<!-- Thêm nhiều ảnh khác nếu cần -->
-	<footer> @Bản quyền thuộc về 1003 . Ngày lập : 5-5-2023</footer>
-	<script>
-		function uploadImage() {
-			var fileInput = document.getElementById('fileInput');
-			var file = fileInput.files[0];
-		
-			if (!file) {
-				alert("Please select an image.");
-				return;
-			}
-		
-			var clientId = 'nhtai0560';  // Thay thế bằng client ID của bạn
-			var uploadUrl = 'https://api.imgur.com/oauth2/authorize';
-		
-			var formData = new FormData();
-			formData.append('image', file);
-		
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', uploadUrl, true);
-			xhr.setRequestHeader('Authorization', 'Client-ID ' + clientId);
-		
-			xhr.onload = function() {
-				if (xhr.status === 200) {
-					var response = JSON.parse(xhr.responseText);
-					var imageLink = response.data.link;
-		
-					// Create img tag with the image link
-					var imgTag = '<img src="' + imageLink + '" alt="Uploaded Image">';
-					
-					// Display result
-					document.getElementById('result').innerHTML = 'Image link: ' + imageLink + '<br>' + 'Image tag: ' + imgTag;
-				} else {
-					console.error('Image upload failed. Status code: ' + xhr.status);
-				}
-			};
-		
-			xhr.onerror = function() {
-				console.error('Network error during image upload.');
-			};
-		
-			xhr.send(formData);
-		}
-	</script>
-</body>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadImage()">Upload Image</button>
+    <div id="result"></div>
+    <div class="container">
+      <div class="photo">
+        <img src="./img/10_3_2024.jpg" alt="Ảnh 16" />
+        <div class="caption">Thời gian: 10_3_2024</div>
+      </div>
+      <div class="photo">
+        <img src="./img/1_12_2023.jpg" alt="Ảnh 15" />
+        <div class="caption">Thời gian: 1_12_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/17_9_2023.jpg" alt="Ảnh 14" />
+        <div class="caption">Thời gian: 17_9_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/27_8_2023.jpg" alt="Ảnh 13" />
+        <div class="caption">Thời gian: 27_8_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/18_06_2023.png" alt="Ảnh 12" />
+        <div class="caption">Thời gian: 2_6_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/2_6_2023.jpg" alt="Ảnh 11" />
+        <div class="caption">Thời gian: 2_6_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/5_7_2023.jpg" alt="Ảnh 10" />
+        <div class="caption">Thời gian: 5_7_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/30_4_2023.jpg" alt="Ảnh 1" />
+        <div class="caption">Thời gian: 30_4_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/29_4_2023.jpg" alt="Ảnh 2" />
+        <div class="caption">Thời gian: 29_4_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/29_1_2023.jpg" alt="Ảnh 3" />
+        <div class="caption">Thời gian: 29_1_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/26_1_2023.jpg" alt="Ảnh 4" />
+        <div class="caption">Thời gian: 26_1_2023</div>
+      </div>
+      <div class="photo">
+        <img src="./img/6_2_2022.jpg" alt="Ảnh 5" />
+        <div class="caption">Thời gian: 6_2_2022</div>
+      </div>
+      <div class="photo">
+        <img src="./img/31_7_2021.jpg" alt="Ảnh 6" />
+        <div class="caption">Thời gian:31_7_2021</div>
+      </div>
+      <div class="photo">
+        <img src="./img/12_6_2021.jpg" alt="Ảnh 7" />
+        <div class="caption">Thời gian: 12_6_2021</div>
+      </div>
+      <div class="photo">
+        <img src="./img/4_7_2021.jpg" alt="Ảnh 8" />
+        <div class="caption">Thời gian: 4_7_2021</div>
+      </div>
+      <div class="photo">
+        <img src="./img/quen_ngay.jpg" alt="Ảnh 9" />
+        <div class="caption">Thời gian: quen_ngay</div>
+      </div>
+    </div>
+    <!-- Thêm nhiều ảnh khác nếu cần -->
+    <footer>@Bản quyền thuộc về 1003 . Ngày lập : 5-5-2023</footer>
+    <script>
+      function uploadImage() {
+        var fileInput = document.getElementById("fileInput");
+        var file = fileInput.files[0];
+
+        if (!file) {
+          alert("Please select an image.");
+          return;
+        }
+
+        var clientId = "nhtai0560"; // Thay thế bằng client ID của bạn
+        var uploadUrl = "https://api.imgur.com/oauth2/authorize";
+
+        var formData = new FormData();
+        formData.append("image", file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", uploadUrl, true);
+        xhr.setRequestHeader("Authorization", "Client-ID " + clientId);
+
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            var imageLink = response.data.link;
+
+            // Create img tag with the image link
+            var imgTag = '<img src="' + imageLink + '" alt="Uploaded Image">';
+
+            // Display result
+            document.getElementById("result").innerHTML =
+              "Image link: " + imageLink + "<br>" + "Image tag: " + imgTag;
+          } else {
+            console.error("Image upload failed. Status code: " + xhr.status);
+          }
+        };
+
+        xhr.onerror = function () {
+          console.error("Network error during image upload.");
+        };
+
+        xhr.send(formData);
+      }
+    </script>
+  </body>
 </html>
