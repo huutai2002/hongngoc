@@ -76,9 +76,12 @@
   </head>
   <body>
     <h1>Mảnh ghép kí ức</h1>
-    <input type="file" id="fileInput" />
-    <button onclick="uploadImage()">Upload Image</button>
-    <div id="result"></div>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <div id="imagePreview"></div>
     <div class="container">
 	<div class="photo">
         <img src="./img/28_07_2024.jpg" alt="Ảnh 19" />
@@ -160,47 +163,27 @@
     <!-- Thêm nhiều ảnh khác nếu cần -->
     <footer>@Bản quyền thuộc về 1003 . Ngày lập : 5-5-2023</footer>
     <script>
-      function uploadImage() {
-        var fileInput = document.getElementById("fileInput");
-        var file = fileInput.files[0];
+        $(document).ready(function() {
+            $('#uploadForm').on('submit', function(e) {
+                e.preventDefault();
 
-        if (!file) {
-          alert("Please select an image.");
-          return;
-        }
+                var formData = new FormData(this);
 
-        var clientId = "nhtai0560"; // Thay thế bằng client ID của bạn
-        var uploadUrl = "https://api.imgur.com/oauth2/authorize";
-
-        var formData = new FormData();
-        formData.append("image", file);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", uploadUrl, true);
-        xhr.setRequestHeader("Authorization", "Client-ID " + clientId);
-
-        xhr.onload = function () {
-          if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            var imageLink = response.data.link;
-
-            // Create img tag with the image link
-            var imgTag = '<img src="' + imageLink + '" alt="Uploaded Image">';
-
-            // Display result
-            document.getElementById("result").innerHTML =
-              "Image link: " + imageLink + "<br>" + "Image tag: " + imgTag;
-          } else {
-            console.error("Image upload failed. Status code: " + xhr.status);
-          }
-        };
-
-        xhr.onerror = function () {
-          console.error("Network error during image upload.");
-        };
-
-        xhr.send(formData);
-      }
+                $.ajax({
+                    url: 'upload.php',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        $('#imagePreview').html('<img src="img/' + data + '" alt="Uploaded Image" width="300">');
+                    },
+                    error: function() {
+                        alert('Lỗi khi upload file.');
+                    }
+                });
+            });
+        });
     </script>
   </body>
 </html>
