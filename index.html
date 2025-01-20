@@ -196,5 +196,62 @@
             });
         });
     </script>
+    <script>
+  // Tạo popup khi nhấn vào ảnh
+  document.addEventListener('DOMContentLoaded', function () {
+    // Lấy tất cả các phần tử ảnh
+    const photos = document.querySelectorAll('.photo img');
+
+    // Tạo phần tử popup
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.width = '100%';
+    popup.style.height = '100%';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    popup.style.display = 'none';
+    popup.style.justifyContent = 'center';
+    popup.style.alignItems = 'center';
+    popup.style.zIndex = '1000';
+
+    // Thêm ảnh trong popup
+    const popupImage = document.createElement('img');
+    popupImage.style.maxWidth = '80%';
+    popupImage.style.maxHeight = '80%';
+    popupImage.style.boxShadow = '0 0 20px white';
+    popup.appendChild(popupImage);
+
+    // Nút đóng popup
+    const closeButton = document.createElement('span');
+    closeButton.textContent = '✖';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '20px';
+    closeButton.style.right = '20px';
+    closeButton.style.fontSize = '30px';
+    closeButton.style.color = 'white';
+    closeButton.style.cursor = 'pointer';
+    popup.appendChild(closeButton);
+
+    // Đóng popup khi nhấn vào nút đóng hoặc vùng ngoài ảnh
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup || e.target === closeButton) {
+        popup.style.display = 'none';
+      }
+    });
+
+    // Hiển thị popup khi nhấn vào ảnh
+    photos.forEach(function (photo) {
+      photo.addEventListener('click', function () {
+        popupImage.src = this.src;
+        popup.style.display = 'flex';
+      });
+    });
+
+    // Thêm popup vào body
+    document.body.appendChild(popup);
+  });
+</script>
+
   </body>
 </html>
